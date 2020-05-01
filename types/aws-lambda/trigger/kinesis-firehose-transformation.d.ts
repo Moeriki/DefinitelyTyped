@@ -31,7 +31,7 @@ export interface FirehoseRecordMetadata {
     subsequenceNumber: string;
 }
 
-export type FirehoseRecordTransformationStatus = 'Ok' | 'Dropped' | 'ProcessingFailed';
+export type FirehoseRecordTransformationStatus = "Ok" | "Dropped" | "ProcessingFailed";
 
 export interface FirehoseTransformationResultRecord {
     recordId: string;

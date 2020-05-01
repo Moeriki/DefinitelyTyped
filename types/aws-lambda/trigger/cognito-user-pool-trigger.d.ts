@@ -12,30 +12,30 @@ export type CognitoUserPoolTriggerHandler = Handler<CognitoUserPoolTriggerEvent>
 export interface CognitoUserPoolTriggerEvent {
     version: number;
     triggerSource:
-        | 'PreSignUp_SignUp'
-        | 'PreSignUp_ExternalProvider'
-        | 'PostConfirmation_ConfirmSignUp'
-        | 'PreAuthentication_Authentication'
-        | 'PostAuthentication_Authentication'
-        | 'CustomMessage_SignUp'
-        | 'CustomMessage_AdminCreateUser'
-        | 'CustomMessage_ResendCode'
-        | 'CustomMessage_ForgotPassword'
-        | 'CustomMessage_UpdateUserAttribute'
-        | 'CustomMessage_VerifyUserAttribute'
-        | 'CustomMessage_Authentication'
-        | 'DefineAuthChallenge_Authentication'
-        | 'CreateAuthChallenge_Authentication'
-        | 'VerifyAuthChallengeResponse_Authentication'
-        | 'PreSignUp_AdminCreateUser'
-        | 'PostConfirmation_ConfirmForgotPassword'
-        | 'TokenGeneration_HostedAuth'
-        | 'TokenGeneration_Authentication'
-        | 'TokenGeneration_NewPasswordChallenge'
-        | 'TokenGeneration_AuthenticateDevice'
-        | 'TokenGeneration_RefreshTokens'
-        | 'UserMigration_Authentication'
-        | 'UserMigration_ForgotPassword';
+        | "PreSignUp_SignUp"
+        | "PreSignUp_ExternalProvider"
+        | "PostConfirmation_ConfirmSignUp"
+        | "PreAuthentication_Authentication"
+        | "PostAuthentication_Authentication"
+        | "CustomMessage_SignUp"
+        | "CustomMessage_AdminCreateUser"
+        | "CustomMessage_ResendCode"
+        | "CustomMessage_ForgotPassword"
+        | "CustomMessage_UpdateUserAttribute"
+        | "CustomMessage_VerifyUserAttribute"
+        | "CustomMessage_Authentication"
+        | "DefineAuthChallenge_Authentication"
+        | "CreateAuthChallenge_Authentication"
+        | "VerifyAuthChallengeResponse_Authentication"
+        | "PreSignUp_AdminCreateUser"
+        | "PostConfirmation_ConfirmForgotPassword"
+        | "TokenGeneration_HostedAuth"
+        | "TokenGeneration_Authentication"
+        | "TokenGeneration_NewPasswordChallenge"
+        | "TokenGeneration_AuthenticateDevice"
+        | "TokenGeneration_RefreshTokens"
+        | "UserMigration_Authentication"
+        | "UserMigration_ForgotPassword";
     region: string;
     userPoolId: string;
     userName?: string;
@@ -52,13 +52,13 @@ export interface CognitoUserPoolTriggerEvent {
         newDeviceUsed?: boolean;
         session?: Array<{
             challengeName:
-                | 'CUSTOM_CHALLENGE'
-                | 'PASSWORD_VERIFIER'
-                | 'SMS_MFA'
-                | 'DEVICE_SRP_AUTH'
-                | 'DEVICE_PASSWORD_VERIFIER'
-                | 'ADMIN_NO_SRP_AUTH'
-                | 'SRP_A';
+                | "CUSTOM_CHALLENGE"
+                | "PASSWORD_VERIFIER"
+                | "SMS_MFA"
+                | "DEVICE_SRP_AUTH"
+                | "DEVICE_PASSWORD_VERIFIER"
+                | "ADMIN_NO_SRP_AUTH"
+                | "SRP_A";
             challengeResult: boolean;
             challengeMetadata?: string;
         }>;
@@ -84,9 +84,9 @@ export interface CognitoUserPoolTriggerEvent {
         challengeMetadata?: string;
         answerCorrect?: boolean;
         userAttributes?: { [key: string]: string };
-        finalUserStatus?: 'CONFIRMED' | 'RESET_REQUIRED';
-        messageAction?: 'SUPPRESS';
-        desiredDeliveryMediums?: Array<'EMAIL' | 'SMS'>;
+        finalUserStatus?: "CONFIRMED" | "RESET_REQUIRED";
+        messageAction?: "SUPPRESS";
+        desiredDeliveryMediums?: Array<"EMAIL" | "SMS">;
         forceAliasCreation?: boolean;
         claimsOverrideDetails?: {
             claimsToAddOrOverride?: { [key: string]: string };

@@ -67,15 +67,15 @@ type ProbablyInvalidCustomProxyHandler = APIGatewayProxyWithLambdaAuthorizerHand
 
 let proxyHandler: APIGatewayProxyHandler = async (event, context, callback) => {
     strOrNull = event.body;
-    str = event.headers['example'];
-    str = event.multiValueHeaders['example'][0];
+    str = event.headers["example"];
+    str = event.multiValueHeaders["example"][0];
     str = event.httpMethod;
     bool = event.isBase64Encoded;
     str = event.path;
-    str = event.pathParameters!['example'];
-    str = event.queryStringParameters!['example'];
-    str = event.multiValueQueryStringParameters!['example'][0];
-    str = event.stageVariables!['example'];
+    str = event.pathParameters!["example"];
+    str = event.queryStringParameters!["example"];
+    str = event.multiValueQueryStringParameters!["example"][0];
+    str = event.stageVariables!["example"];
     let requestContext: APIGatewayEventRequestContext;
     requestContext = event.requestContext;
     let requestContextWithCustomAuthorizer: APIGatewayEventRequestContextWithAuthorizer<CustomAuthorizerContext>;
@@ -132,11 +132,15 @@ let proxyHandler: APIGatewayProxyHandler = async (event, context, callback) => {
     return result;
 };
 
-const proxyHandlerWithCustomAuthorizer: APIGatewayProxyWithLambdaAuthorizerHandler<CustomAuthorizerContext> = async (event, context, callback) => {
+const proxyHandlerWithCustomAuthorizer: APIGatewayProxyWithLambdaAuthorizerHandler<CustomAuthorizerContext> = async (
+    event,
+    context,
+    callback
+) => {
     // standard fields...
     strOrNull = event.body;
-    str = event.headers['example'];
-    str = event.multiValueHeaders['example'][0];
+    str = event.headers["example"];
+    str = event.multiValueHeaders["example"][0];
 
     // It seems like it would be easy to make this mistake, but it's still a useful type.
     let requestContextWithAuthorizerDirectly: APIGatewayEventRequestContextWithAuthorizer<CustomAuthorizerContext>;
@@ -213,7 +217,11 @@ const authorizer: APIGatewayAuthorizerHandler = async (event, context, callback)
     return result;
 };
 
-const authorizerWithCustomContext: APIGatewayAuthorizerWithContextHandler<CustomAuthorizerContext> = async (event, context, callback) => {
+const authorizerWithCustomContext: APIGatewayAuthorizerWithContextHandler<CustomAuthorizerContext> = async (
+    event,
+    context,
+    callback
+) => {
     if (event.type === "TOKEN") {
         str = event.methodArn;
         str = event.authorizationToken;
@@ -251,7 +259,11 @@ const tokenAuthorizer: APIGatewayTokenAuthorizerHandler = async (event, context,
     return result;
 };
 
-const tokenAuthorizerWithCustomContext: APIGatewayTokenAuthorizerWithContextHandler<CustomAuthorizerContext> = async (event, context, callback) => {
+const tokenAuthorizerWithCustomContext: APIGatewayTokenAuthorizerWithContextHandler<CustomAuthorizerContext> = async (
+    event,
+    context,
+    callback
+) => {
     event.type; // $ExpectType "TOKEN"
 
     str = event.type;
@@ -276,18 +288,12 @@ const requestAuthorizer: APIGatewayRequestAuthorizerHandler = async (event, cont
     str = event.resource;
     str = event.path;
     str = event.httpMethod;
-    if (event.headers !== null)
-        str = event.headers[str];
-    if (event.multiValueHeaders !== null)
-        str = event.multiValueHeaders[str][num];
-    if (event.pathParameters !== null)
-        str = event.pathParameters[str];
-    if (event.queryStringParameters !== null)
-        str = event.queryStringParameters[str];
-    if (event.multiValueQueryStringParameters !== null)
-        str = event.multiValueQueryStringParameters[str][num];
-    if (event.stageVariables !== null)
-        str = event.stageVariables[str];
+    if (event.headers !== null) str = event.headers[str];
+    if (event.multiValueHeaders !== null) str = event.multiValueHeaders[str][num];
+    if (event.pathParameters !== null) str = event.pathParameters[str];
+    if (event.queryStringParameters !== null) str = event.queryStringParameters[str];
+    if (event.multiValueQueryStringParameters !== null) str = event.multiValueQueryStringParameters[str][num];
+    if (event.stageVariables !== null) str = event.stageVariables[str];
     const requestContext: APIGatewayEventRequestContext = event.requestContext;
     if (requestContext.domainName != null) {
         str = requestContext.domainName;
@@ -301,7 +307,11 @@ const requestAuthorizer: APIGatewayRequestAuthorizerHandler = async (event, cont
     return result;
 };
 
-const requestAuthorizerWithCustomContext: APIGatewayRequestAuthorizerWithContextHandler<CustomAuthorizerContext> = async (event, context, callback) => {
+const requestAuthorizerWithCustomContext: APIGatewayRequestAuthorizerWithContextHandler<CustomAuthorizerContext> = async (
+    event,
+    context,
+    callback
+) => {
     event.type; // $ExpectType "REQUEST"
 
     str = event.type;
@@ -348,19 +358,19 @@ function createPolicyDocument(): PolicyDocument {
     };
 
     // $ExpectError
-    statement = { Effect: str, Action: str, Principal: 123, };
+    statement = { Effect: str, Action: str, Principal: 123 };
 
     // Bad Resource
     // $ExpectError
-    statement = { Effect: str, Action: str, Resource: 123, };
+    statement = { Effect: str, Action: str, Resource: 123 };
 
     // Bad Resource with valid Principal
     // $ExpectError
-    statement = { Effect: str, Action: str, Principal: { Service: str }, Resource: 123, };
+    statement = { Effect: str, Action: str, Principal: { Service: str }, Resource: 123 };
 
     // Bad principal with valid Resource
     // $ExpectError
-    statement = { Effect: str, Action: str, Principal: 123, Resource: str, };
+    statement = { Effect: str, Action: str, Principal: 123, Resource: str };
 
     // No Effect
     // $ExpectError
@@ -372,14 +382,14 @@ function createPolicyDocument(): PolicyDocument {
         Effect: str,
         Resource: [str, str],
         Condition: {
-            condition1: { key: 'value' },
+            condition1: { key: "value" },
             condition2: [
                 {
-                    key1: 'value',
-                    key2: 'value',
+                    key1: "value",
+                    key2: "value",
                 },
                 {
-                    key3: 'value',
+                    key3: "value",
                 },
             ],
         },

@@ -28,7 +28,7 @@ export interface SQSRecordAttributes {
     ApproximateFirstReceiveTimestamp: string;
 }
 
-export type SQSMessageAttributeDataType = 'String' | 'Number' | 'Binary' | string;
+export type SQSMessageAttributeDataType = "String" | "Number" | "Binary" | string;
 
 export interface SQSMessageAttribute {
     stringValue?: string;

@@ -22,13 +22,13 @@ export interface CloudFrontCustomOrigin {
     keepaliveTimeout: number;
     path: string;
     port: number;
-    protocol: 'http' | 'https';
+    protocol: "http" | "https";
     readTimeout: number;
     sslProtocols: string[];
 }
 
 export interface CloudFrontS3Origin {
-    authMethod: 'origin-access-identity' | 'none';
+    authMethod: "origin-access-identity" | "none";
     customHeaders: CloudFrontHeaders;
     domainName: string;
     path: string;
@@ -43,9 +43,9 @@ export interface CloudFrontResponse {
 
 export interface CloudFrontRequest {
     body?: {
-        action: 'read-only' | 'replace';
+        action: "read-only" | "replace";
         data: string;
-        encoding: 'base64' | 'text';
+        encoding: "base64" | "text";
         readonly inputTruncated: boolean;
     };
     readonly clientIp: string;
@@ -60,7 +60,7 @@ export interface CloudFrontEvent {
     config: {
         readonly distributionDomainName: string;
         readonly distributionId: string;
-        readonly eventType: 'origin-request' | 'origin-response' | 'viewer-request' | 'viewer-response';
+        readonly eventType: "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
         readonly requestId: string;
     };
 }
@@ -74,6 +74,6 @@ export interface CloudFrontResultResponse {
     status: string;
     statusDescription?: string;
     headers?: CloudFrontHeaders;
-    bodyEncoding?: 'text' | 'base64';
+    bodyEncoding?: "text" | "base64";
     body?: string;
 }

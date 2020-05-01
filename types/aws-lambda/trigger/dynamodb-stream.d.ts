@@ -24,7 +24,7 @@ export interface StreamRecord {
     OldImage?: { [key: string]: AttributeValue };
     SequenceNumber?: string;
     SizeBytes?: number;
-    StreamViewType?: 'KEYS_ONLY' | 'NEW_IMAGE' | 'OLD_IMAGE' | 'NEW_AND_OLD_IMAGES';
+    StreamViewType?: "KEYS_ONLY" | "NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES";
 }
 
 // http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_Record.html
@@ -32,7 +32,7 @@ export interface DynamoDBRecord {
     awsRegion?: string;
     dynamodb?: StreamRecord;
     eventID?: string;
-    eventName?: 'INSERT' | 'MODIFY' | 'REMOVE';
+    eventName?: "INSERT" | "MODIFY" | "REMOVE";
     eventSource?: string;
     eventSourceARN?: string;
     eventVersion?: string;

@@ -9,17 +9,23 @@ export type APIGatewayProxyCallback = Callback<APIGatewayProxyResult>;
 
 export type APIGatewayProxyEvent = APIGatewayProxyEventBase<APIGatewayEventDefaultAuthorizerContext>;
 
-export type APIGatewayProxyWithLambdaAuthorizerHandler<TAuthorizerContext> =
-    Handler<APIGatewayProxyWithLambdaAuthorizerEvent<TAuthorizerContext>, APIGatewayProxyResult>;
+export type APIGatewayProxyWithLambdaAuthorizerHandler<TAuthorizerContext> = Handler<
+    APIGatewayProxyWithLambdaAuthorizerEvent<TAuthorizerContext>,
+    APIGatewayProxyResult
+>;
 
-export type APIGatewayProxyWithCognitoAuthorizerHandler =
-    Handler<APIGatewayProxyWithCognitoAuthorizerEvent, APIGatewayProxyResult>;
+export type APIGatewayProxyWithCognitoAuthorizerHandler = Handler<
+    APIGatewayProxyWithCognitoAuthorizerEvent,
+    APIGatewayProxyResult
+>;
 
-export type APIGatewayProxyWithLambdaAuthorizerEvent<TAuthorizerContext> =
-    APIGatewayProxyEventBase<APIGatewayEventLambdaAuthorizerContext<TAuthorizerContext>>;
+export type APIGatewayProxyWithLambdaAuthorizerEvent<TAuthorizerContext> = APIGatewayProxyEventBase<
+    APIGatewayEventLambdaAuthorizerContext<TAuthorizerContext>
+>;
 
-export type APIGatewayProxyWithLambdaAuthorizerEventRequestContext<TAuthorizerContext> =
-    APIGatewayEventRequestContextWithAuthorizer<APIGatewayEventLambdaAuthorizerContext<TAuthorizerContext>>;
+export type APIGatewayProxyWithLambdaAuthorizerEventRequestContext<
+    TAuthorizerContext
+> = APIGatewayEventRequestContextWithAuthorizer<APIGatewayEventLambdaAuthorizerContext<TAuthorizerContext>>;
 
 // API Gateway proxy integration mangles the context from a custom authorizer,
 // converting all number or boolean properties to string, and adding some extra properties.

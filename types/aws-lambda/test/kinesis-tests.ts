@@ -1,6 +1,7 @@
 import {
     FirehoseRecordTransformationStatus,
-    FirehoseTransformationHandler, FirehoseTransformationResult,
+    FirehoseTransformationHandler,
+    FirehoseTransformationResult,
     KinesisStreamHandler,
     KinesisStreamRecord,
     KinesisStreamRecordPayload,
@@ -38,8 +39,8 @@ const firehoseHandler: FirehoseTransformationHandler = async (event, context, ca
         records: [
             {
                 recordId: event.records[0].recordId,
-                result: 'Ok' as FirehoseRecordTransformationStatus,
-                data: 'eyJmb28iOiJiYXIifQ==',
+                result: "Ok" as FirehoseRecordTransformationStatus,
+                data: "eyJmb28iOiJiYXIifQ==",
             },
         ],
     };

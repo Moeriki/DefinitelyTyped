@@ -46,6 +46,7 @@ export * from "./trigger/api-gateway-authorizer";
 export * from "./trigger/api-gateway-proxy";
 // CloudTrail section just describes using S3 to trigger on cloudtrail changes.
 export * from "./trigger/cloudformation-custom-resource";
+export * from "./trigger/cloudformation-macro";
 export * from "./trigger/cloudfront-request";
 export * from "./trigger/cloudfront-response";
 export * from "./trigger/cloudwatch-events";
